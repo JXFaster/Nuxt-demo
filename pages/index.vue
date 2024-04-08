@@ -35,11 +35,11 @@
               <div class="count">
                 <span>
                   <img src="../assets/播放.png" alt="" />
-                  {{ item.stat.view }}
+                  {{ setPlayNumber(item.stat.view) }}
                 </span>
                 <span>
                   <img src="../assets/弹幕.png" alt="" />
-                  {{ item.stat.danmaku }}
+                  {{ setPlayNumber(item.stat.danmaku) }}
                 </span>
               </div>
               <div class="card-title">{{ item.title }}</div>
@@ -88,6 +88,18 @@ const pageSize = ref(10);
 
 const res2 = await useFetch("/api/video", { method: "GET" });
 cardData.value = res2.data.value;
+
+// 转换 播放量 和 弹幕数量
+const setPlayNumber = (data: number) => {
+  let endNumber: string | number = 0;
+  if (data >= 10000) {
+    const convertsNumber = (data / 10000).toFixed(1);
+    endNumber = convertsNumber + "万";
+  } else {
+    endNumber = data;
+  }
+  return endNumber;
+};
 
 // 触底时触发
 const onLoad = () => {
