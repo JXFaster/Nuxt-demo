@@ -17,6 +17,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.17.3",
     "@vant/nuxt": "^1.0.4",
+    "sass": "^1.74.1",
     "vant": "^4.8.8"
   }
 }
