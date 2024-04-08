@@ -52,7 +52,6 @@
 </template>
 
 <script setup lang="ts">
-import { useFetch } from ".nuxt/imports";
 import { ref } from "vue";
 import type { tabbarDataType } from "../types/tabbar";
 import type { videoDataType } from "../types/video";
